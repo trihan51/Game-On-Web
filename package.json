@@ -1,0 +1,23 @@
+{
+  "name": "game-on-web",
+  "version": "1.0.0",
+  "description": "A web application that allows users to meet online and play board games offline",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trihan51/Game-On-Web.git"
+  },
+  "author": "Game On",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trihan51/Game-On-Web/issues"
+  },
+  "homepage": "https://github.com/trihan51/Game-On-Web#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
