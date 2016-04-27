@@ -1,0 +1,19 @@
+<section ng-controller="SigninController">
+	<h1>Signin</h1>
+	<form ng-submit="signin()" novalidate>
+		<div>
+			<label for="username">username</label>
+			<div>
+				<input type="text" ng-model="username" id="username" placeholder="username..." required>
+			</div>
+		</div>
+		<div>
+			<label for="password">password</label>
+			<div>
+				<input type="text" ng-model="password" id="password" placeholder="password..." required>
+			</div>
+		</div>
+		<div>
+			<input type="submit" value="Signin">
+		</div>
+</section>

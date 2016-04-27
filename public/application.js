@@ -1,6 +1,6 @@
 var mainApplicationModuleName = 'game-on-web';
 
-var mainApplicationModule = angular.module(mainApplicationModuleName, ['ngRoute', 'home']);
+var mainApplicationModule = angular.module(mainApplicationModuleName, ['ngRoute', 'home', 'signin']);
 
 mainApplicationModule.config(['$locationProvider',
 	function($locationProvider) {
