@@ -3,5 +3,12 @@ angular.module('home').controller('HomeController', ['$scope', 'Authentication',
 
 	$scope.authentication = Authentication;
 
+<<<<<<< HEAD
 	console.log($scope.authentication.user);
+=======
+	$scope.signout = function() {
+		Authentication.user = null;
+		Parse.User.logOut();
+	};
+>>>>>>> dev2
 }]);
