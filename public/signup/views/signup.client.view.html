@@ -1,0 +1,44 @@
+<section ng-controller="SignupController">
+	<h1>Signup</h1>
+	<form ng-submit="signup()" novalidate>
+		<div>
+			<label for="firstname">First Name</label>
+			<div>
+				<input type="text" ng-model="firstname" id="firstname" placeholder="First Name" required>
+			</div>
+		</div>
+		<div>
+			<label for="lastname">Last Name</label>
+			<div>
+				<input type="text" ng-model="lastname" id="lastname" placeholder="Last Name" required>
+			</div>
+		</div>
+		<div>
+			<label for="username">Username</label>
+			<div>
+				<input type="text" ng-model="username" id="username" placeholder="Username" required>
+			</div>
+		</div>
+		<div>
+			<label for="email">Email</label>
+			<div>
+				<input type="text" ng-model="email" id="email" placeholder="Email" required>
+			</div>
+		</div>
+		<div>
+			<label for="password">Password</label>
+			<div>
+				<input type="password" ng-model="password" id="password" placeholder="Password" required>
+			</div>
+		</div>
+		<div>
+			<label for="passwordconfirm">Reenter</label>
+			<div>
+				<input type="password" ng-model="passwordconfirm" id="passwordconfirm" placeholder="Reenter Password" required>
+			</div>
+		</div>
+
+		<input type="submit" value="Signup">
+	</form>
+	<a href="/#!/">Return to Home</a>
+</section>
