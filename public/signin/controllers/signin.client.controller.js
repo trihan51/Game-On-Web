@@ -1,10 +1,10 @@
-angular.module('signin').controller('SigninController', ['$scope', function($scope) {
+angular.module('signin').controller('SigninController', ['$scope', '$window', 'Authentication', function($scope, $window, Authentication) {
 
 	$scope.signin = function() {
 		Parse.User.logIn($scope.username, $scope.password, {
 			success: function(user) {
 				// Do stuff after successful login.
-				// window.user = user;
+				Authentication.user = user;
 				alert("You successfully logged in!");
 			},
 			error: function(user, error) {
