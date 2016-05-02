@@ -15,8 +15,12 @@ angular.module('signup').controller('SignupController', ['$scope', 'Authenticati
 
 		user.signUp(null, {
 			success: function(user) {
+				window.user = user;
 				Authentication.user = user;
 				alert("Congratulations! You have successfully signed up for an account!");
+				
+				// redirect user back to home
+				location.href = "/#!/";
 			},
 			error: function(user, error) {
 				alert("We're sorry. You were unable to create an account. Please try again.");

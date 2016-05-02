@@ -1,3 +1,24 @@
-<section ng-controller="JoinController">
-	<p>Welcome to the Join page</p>
+<section ng-controller="JoinController" ng-init="initialize()">
+	<h1>Welcome to the Join page</h1>
+	
+	<div ng-show="!whenUserHasSelectedBoardGame">
+		<h2>Board Games</h2>
+		<ul>
+			<li ng-repeat="boardgame in boardgames">
+				<p ng-bind="boardgame" ng-click="displayOpenSessionsFor(boardgame)"></p>
+			</li>
+		</ul>
+	</div>
+
+	<div ng-show="whenUserHasSelectedBoardGame">
+		<h2>Open Sessions</h2>
+		<ul>
+			<li ng-repeat="session in sessions">
+				<p ng-bind="session.attributes.gameTitle"></p>
+				<p ng-bind="session.attributes.host.attributes.username"></p>
+				<p ng-bind="session.attributes.participants.length"></p> players
+				<button type="button" ng-click="joinSession(session.id)">Join</button>
+ 			</li>
+		</ul>
+	</div>
 </section>

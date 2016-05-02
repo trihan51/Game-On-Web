@@ -1,3 +1,10 @@
-<section ng-controller="HostController">
-	<p>Welcome to the host page.</p>
+<section ng-controller="HostController" ng-init="initialize()">
+	<h1>Welcome to the host page.</h1>
+
+	<h2>Board Games</h2>
+	<ul>
+		<li ng-repeat="boardgame in boardgames">
+			<p ng-bind="boardgame.attributes.boardName" ng-click="hostNewSessionFor(boardgame)"></p>
+		</li>
+	</ul>
 </section>
