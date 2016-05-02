@@ -1,0 +1,20 @@
+<section ng-controller="SessionController" ng-init="initialize()">
+	<h1>Welcome to the Session page</h1>
+
+	<p ng-bind="currentsession.attributes.gameTitle"></p>
+	<p ng-bind="currentsession.attributes.host.attributes.username"></p>
+	<!-- need to add timer here -->
+	<p ng-bind="participant" ng-repeat="participant in currentsession.attributes.participants"></p>
+
+	<div ng-show="currentUserIsHost">
+		<button type="button" ng-click="startSession()">Game On</button>
+		<button type="button" ng-click="cancelSession()">Cancel</button>
+	</div>
+
+	<div ng-show="!currentUserIsHost">
+		<button type="button" ng-click="leaveSession()">Leave</button>
+	</div>
+
+	<a href="/#!/">Return to Home</a>
+
+</section>

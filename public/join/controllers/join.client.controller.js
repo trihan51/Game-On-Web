@@ -1,8 +1,8 @@
-angular.module('join').controller('JoinController', ['$scope', 'Authentication', '$q', function($scope, Authentication, $q) {
+angular.module('join').controller('JoinController', ['$scope', 'Authentication', '$q', 'CurrentSession', function($scope, Authentication, $q, CurrentSession) {
 	$scope.authentication = Authentication;
 
 	$scope.initialize = function() {
-		$scope.whenUserHasSelectedBoardGame = false;
+		$scope.UserHasSelectedBoardGame = false;
 		$scope.findOpenSessions();
 	}
 
@@ -41,13 +41,13 @@ angular.module('join').controller('JoinController', ['$scope', 'Authentication',
 				deferred.resolve(results);
 			},
 			function(error) {
-				deferred.reject(results);	
+				deferred.reject(error);	
 			}
 		);
 	};
 
 	$scope.displayOpenSessionsFor = function(boardgame) {
-		console.log($scope.whenUserHasSelectedBoardGame);
+		console.log($scope.UserHasSelectedBoardGame);
 
 		var sessionsOfSelectedBoardGame = [];
 		var i = 0;
@@ -58,12 +58,28 @@ angular.module('join').controller('JoinController', ['$scope', 'Authentication',
 			}
 		}
 		$scope.sessions = sessionsOfSelectedBoardGame;
-		$scope.whenUserHasSelectedBoardGame = true;
+		$scope.UserHasSelectedBoardGame = true;
 
-		console.log($scope.whenUserHasSelectedBoardGame);
+		console.log($scope.UserHasSelectedBoardGame);
 	}
 
-	$scope.joinSession = function(sessionId) {
-		alert("hey, you joined session " + sessionId);
+	$scope.joinSession = function(session) {
+		var participants = session.attributes.participants;
+
+		if (participants.indexOf(Parse.User.current().id) === -1) {
+			participants.push(Parse.User.current().id);
+		}	
+
+		session.set("participants", participants);
+		session.save(null, {
+			success: function(session) {
+				console.log("user added to session successfully");
+				CurrentSession.currentSession = session;
+				location.href = "/#!/session";
+			},
+			error: function(session, error) {
+				console.log(error);
+			}
+		});
 	}
 }]);

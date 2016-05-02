@@ -17,4 +17,8 @@ angular.module('signin').controller('SigninController', ['$scope', 'Authenticati
 			}
 		});
 	};
+	
+	$scope.username_alert = function(username) {
+		alert('your username is: ' + username);
+	}
 }]);

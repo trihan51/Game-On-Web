@@ -1,4 +1,4 @@
-angular.module('host').controller('HostController', ['$scope', 'Authentication', '$q', function($scope, Authentication, $q) {
+angular.module('host').controller('HostController', ['$scope', 'Authentication', '$q', 'CurrentSession', function($scope, Authentication, $q, CurrentSession) {
 	$scope.authentication = Authentication;
 
 	$scope.initialize = function() {
@@ -45,6 +45,8 @@ angular.module('host').controller('HostController', ['$scope', 'Authentication',
 		gameonsession.save(null, {
 			success: function(session) {
 				console.log("You saved it!");
+				CurrentSession.currentSession = session;
+				location.href = "/#!/session";
 			},
 			error: function(session, error) {
 				console.log("You did not save it!");

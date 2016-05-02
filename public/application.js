@@ -10,7 +10,8 @@ var mainApplicationModule = angular.module(
 		'signup', 
 		'profile', 
 		'join', 
-		'host'
+		'host',
+		'session'
 	]
 );
 

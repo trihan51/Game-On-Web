@@ -2,7 +2,7 @@
 	<h1>Signin</h1>
 	<form ng-submit="signin()" novalidate>
 		<div>
-			<label for="username">username</label>
+			<label for="username" ng-click="username_alert(username)">username</label>
 			<div>
 				<input type="text" ng-model="username" id="username" placeholder="username..." required>
 			</div>
