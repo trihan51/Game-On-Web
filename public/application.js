@@ -4,6 +4,7 @@ var mainApplicationModule = angular.module(
 	mainApplicationModuleName, 
 	[
 		'ngRoute', 
+		'ngMaterial',
 		'users', 
 		'home', 
 		'signin', 

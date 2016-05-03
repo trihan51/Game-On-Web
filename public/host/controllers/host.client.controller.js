@@ -1,4 +1,4 @@
-angular.module('host').controller('HostController', ['$scope', 'Authentication', '$q', 'CurrentSession', function($scope, Authentication, $q, CurrentSession) {
+angular.module('host').controller('HostController', ['$scope', 'Authentication', '$q', 'CurrentSession', 'Location', function($scope, Authentication, $q, CurrentSession, Location) {
 	$scope.authentication = Authentication;
 
 	$scope.initialize = function() {
@@ -27,7 +27,7 @@ angular.module('host').controller('HostController', ['$scope', 'Authentication',
 				deferred.resolve(results);
 			},
 			function(error) {
-				deferred.reject(results);
+				deferred.reject(error);
 			}
 		);
 
@@ -41,6 +41,8 @@ angular.module('host').controller('HostController', ['$scope', 'Authentication',
 		gameonsession.set("host", Parse.User.current());
 		gameonsession.set("participants", []);
 		gameonsession.set("open", true);
+		var point = new Parse.GeoPoint({latitude: Location.currentLocation.lat(), longitude: Location.currentLocation.lng()});
+		gameonsession.set("location", point);
 
 		gameonsession.save(null, {
 			success: function(session) {
