@@ -1,8 +1,8 @@
-angular.module('users').factory('Location', [
-	function() {
+angular.module('users').factory('Location', ['$q',
+	function($q) {
 		console.log("in Location service");
-		var currentLocation;
 		var sanjosestateuniversity = new google.maps.LatLng(37.336919, -121.882016);
+		var currentLocation = sanjosestateuniversity; // default
 		var browserSupportFlag = new Boolean();
 
 		// Try W3C Geolocation (Preferred)

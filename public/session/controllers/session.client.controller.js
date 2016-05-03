@@ -1,4 +1,4 @@
-angular.module('session').controller('SessionController', ['$scope', 'Authentication', '$q', 'CurrentSession', function($scope, Authentication, $q, CurrentSession) {
+angular.module('session').controller('SessionController', ['$scope', 'Authentication', '$q', 'CurrentSession', 'Location', function($scope, Authentication, $q, CurrentSession, Location) {
 	$scope.authentication = Authentication;
 	$scope.currentsession = CurrentSession.currentSession;
 
@@ -39,7 +39,24 @@ angular.module('session').controller('SessionController', ['$scope', 'Authentica
 					draggable: false
 				});
 
-				map.panTo(pos);
+				if (!$scope.currentUserIsHost) {
+					var currentPosition = {
+						lat: Location.currentLocation.lat(),
+						lng: Location.currentLocation.lng()
+					};
+					var currentPositionMarker = new google.maps.Marker({
+						map: map,
+						position: currentPosition,
+						icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+						draggable: false
+					});
+					var bounds = new google.maps.LatLngBounds();
+					bounds.extend(sessionLocationMarker.position);
+					bounds.extend(currentPositionMarker.position);
+					map.fitBounds(bounds);
+				} else {
+					map.panTo(pos);
+				}
 			},
 			function(error) {
 				console.log(error);
