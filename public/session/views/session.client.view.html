@@ -6,6 +6,8 @@
 	<!-- need to add timer here -->
 	<p ng-bind="participant" ng-repeat="participant in currentsession.attributes.participants"></p>
 
+	<div id="map" ></div>
+
 	<div ng-show="currentUserIsHost">
 		<button type="button" ng-click="startSession()">Game On</button>
 		<button type="button" ng-click="cancelSession()">Cancel</button>
@@ -16,5 +18,4 @@
 	</div>
 
 	<a href="/#!/">Return to Home</a>
-
 </section>

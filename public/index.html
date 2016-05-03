@@ -2,6 +2,13 @@
 <html>
 <head>
 	<title>Game On!</title>
+	<style>
+      #map {
+        width: 500px;
+        height: 400px;
+        background-color: #CCC;
+      }
+    </style>
 </head>
 <body>
 	<section ng-view></section>
@@ -16,6 +23,8 @@
 	<script type="text/javascript">
 		Parse.initialize("duemHXnG4aocoONNNIEQLevZ7MyLAvqWSSFlBnpW", "xk3uVrxKkj1fSDxMyaNX1fxc8R5igSbY6OvLKIxJ");
 	</script>
+
+	<script src="https://maps.googleapis.com/maps/api/js" async defer></script>
 
 	<script type="text/javascript" src="/home/home.client.module.js"></script>
 	<script type="text/javascript" src="/home/controllers/home.client.controller.js"></script>

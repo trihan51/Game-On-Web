@@ -3,11 +3,15 @@ angular.module('session').controller('SessionController', ['$scope', 'Authentica
 	$scope.currentsession = CurrentSession.currentSession;
 
 	$scope.initialize = function() {
-		console.log("in initializing function");
-		console.log(CurrentSession.currentSession);
+		// initializing the map
+		var mapDiv = document.getElementById('map');
+		var map = new google.maps.Map(mapDiv, {
+			center: {lat: 44.540, lng: -78.546},
+			zoom: 8
+		});
 
+		// initializing the session
 		var session;
-
 		var GameOnSession = Parse.Object.extend("GameOnSession");
 		var query = new Parse.Query(GameOnSession);
 
