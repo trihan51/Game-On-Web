@@ -27,6 +27,7 @@ module.exports = function() {
 	}));
 
 	// Load the routing files here
+	require('../app/routes/servermessage.server.routes.js')(app);
 
 	app.use(express.static('./public'));
 

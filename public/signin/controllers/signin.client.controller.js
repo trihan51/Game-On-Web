@@ -1,5 +1,12 @@
-angular.module('signin').controller('SigninController', ['$scope', 'Authentication', function($scope, Authentication, Location) {
+angular.module('signin').controller('SigninController', ['$scope', 'Authentication', 'ServerMessage', function($scope, Authentication, ServerMessage) {
 	$scope.signin = function() {
+
+		var json = ServerMessage.get(null, 
+			function() {
+				alert("The server says: " + json.message);
+			}
+		);
+
 		Parse.User.logIn($scope.username, $scope.password, {
 			success: function(user) {
 				// Do stuff after successful login.
