@@ -1,6 +1,15 @@
 <section ng-controller="JoinController" ng-init="initialize()">
-	<h1>Welcome to the Join page</h1>
-	
+	<md-toolbar class="md-primary">
+		<div class="md-toolbar-tools">
+			<md-button aria-label="Go Home" href="/#!/">
+				Go Home
+			</md-button>
+			<h2>
+				<span>Join Sessions</span>
+			</h2>
+		</div>
+	</md-toolbar>
+
 	<div ng-show="!UserHasSelectedBoardGame">
 		<h2>Board Games</h2>
 		<ul>

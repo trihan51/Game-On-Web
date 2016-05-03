@@ -1,10 +1,27 @@
 <section ng-controller="HostController" ng-init="initialize()">
-	<h1>Welcome to the host page.</h1>
-
-	<h2>Board Games</h2>
-	<ul>
-		<li ng-repeat="boardgame in boardgames">
-			<p ng-bind="boardgame.attributes.boardName" ng-click="hostNewSessionFor(boardgame)"></p>
-		</li>
-	</ul>
+	<md-toolbar class="md-primary">
+		<div class="md-toolbar-tools">
+			<md-button aria-label="Go Home" href="/#!/">
+				Go Home
+			</md-button>
+			<h2>
+				<span>Host Sessions</span>
+			</h2>
+		</div>
+	</md-toolbar>
+	<md-content md-theme="altTheme">
+		<section>
+			<md-subheader class="md-primary">Board Games</md-subheader>
+			<md-list layout-padding>
+				<md-list-item class="" ng-repeat="boardgame in boardgames">
+					<div layout="row">
+						<p>{{boardgame.attributes.boardName}}</p>
+						<md-button class="md-raised md-primary" ng-click="hostNewSessionFor(boardgame)">
+							Host Game
+						</md-button>
+					</div>
+				</md-list-item>
+			</md-list>
+		</section>
+	</md-content>
 </section>

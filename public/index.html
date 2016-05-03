@@ -10,9 +10,12 @@
       }
     </style>
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+    <link rel="stylesheet" href="/home/views/home.client.view.css">
+    <link rel="stylesheet" href="/signin/views/signin.client.view.css">
+    <link rel="stylesheet" href="/signup/views/signup.client.view.css">
 </head>
 <body>
-	<section ng-view></section>
+	<section class="full-height" ng-view ng-cloak></section>
 
 	<!-- Loading Angular -->
 	<script type="text/javascript" src="/lib/angular/angular.js"></script>

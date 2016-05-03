@@ -1,44 +1,51 @@
 <section ng-controller="SignupController">
-	<h1>Signup</h1>
+	<md-toolbar class="md-primary">
+		<div class="md-toolbar-tools">
+			<md-button aria-label="Go Home" href="/#!/">
+				Go Home
+			</md-button>
+			<h2>
+				<span>Register</span>
+			</h2>
+		</div>
+	</md-toolbar>
 	<form ng-submit="signup()" novalidate>
-		<div>
-			<label for="firstname">First Name</label>
-			<div>
-				<input type="text" ng-model="firstname" id="firstname" placeholder="First Name" required>
+		<md-content layout-padding>
+			<div layout-gt-sm="row" layout-padding layout-align="center center" >
+				<md-input-container>
+					<label for="firstname">First Name</label>
+					<input type="text" ng-model="firstname" id="firstname" placeholder="First Name" required>
+				</md-input-container>
+				<md-input-container>
+					<label for="lastname">Last Name</label>
+					<input type="text" ng-model="lastname" id="lastname" placeholder="Last Name" required>
+				</md-input-container>
 			</div>
-		</div>
-		<div>
-			<label for="lastname">Last Name</label>
-			<div>
-				<input type="text" ng-model="lastname" id="lastname" placeholder="Last Name" required>
+			<div layout-gt-xs="row" layout-padding layout-align="center center">
+				<md-input-container>
+					<label for="username">Username</label>
+					<input type="text" ng-model="username" id="username" placeholder="Username" required>
+				</md-input-container>
+				<md-input-container>
+					<label for="email">Email Address</label>
+					<input type="text" ng-model="email" id="email" placeholder="Email Address" required>
+				</md-input-container>
 			</div>
-		</div>
-		<div>
-			<label for="username">Username</label>
-			<div>
-				<input type="text" ng-model="username" id="username" placeholder="Username" required>
+			<div layout-gt-xs="row" layout-padding layout-align="center center" >
+				<md-input-container>
+					<label for="password">Password</label>
+					<input type="password" ng-model="password" id="password" placeholder="Password" required>
+				</md-input-container>
+				<md-input-container>
+					<label for="passwordconfirm">Confirm Password</label>
+					<input type="password" ng-model="passwordconfirm" id="passwordconfirm" placeholder="Confirm Password" required>
+				</md-input-container>
 			</div>
-		</div>
-		<div>
-			<label for="email">Email</label>
-			<div>
-				<input type="text" ng-model="email" id="email" placeholder="Email" required>
-			</div>
-		</div>
-		<div>
-			<label for="password">Password</label>
-			<div>
-				<input type="password" ng-model="password" id="password" placeholder="Password" required>
-			</div>
-		</div>
-		<div>
-			<label for="passwordconfirm">Reenter</label>
-			<div>
-				<input type="password" ng-model="passwordconfirm" id="passwordconfirm" placeholder="Reenter Password" required>
-			</div>
-		</div>
-
-		<input type="submit" value="Signup">
+			<section layout-gt-xs="row" layout-align="center center" layout-wrap>
+				<md-button type="submit" class="md-raised md-primary">
+					Register
+				</md-button>
+			</section>
+		</md-content>
 	</form>
-	<a href="/#!/">Return to Home</a>
 </section>

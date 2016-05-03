@@ -1,18 +1,48 @@
-<section ng-controller="HomeController">
-	<div ng-show="!authentication.user">
-		<a href="/#!/signin">Signin</a>
-		<a href="/#!/signup">Signup</a>
-	</div>
+<section ng-controller="HomeController" class="full-height red">
+	<md-toolbar class="md-primary">
+		<div class="md-toolbar-tools" ng-show="!authentication.user">
+			<h2>
+          		<span>Game On</span>
+        	</h2>
+			<span flex=""></span>
+			<md-button class="md-raised" aria-label="Sign In" href="/#!/signin">
+				Log In
+			</md-button>
+			<md-button class="md-raised" aria-label="Register" href="/#!/signup">
+				Register
+			</md-button>
+		</div>
 
-	<div ng-show="authentication.user">
-		<h1>Hello</h1>
-		<a href="/#!/" ng-click="signout()">Signout</a>
+		<div class="md-toolbar-tools" ng-show="authentication.user">
+			<h1>
+				<span>Welcome</span>
+			</h1>
+			<span flex=""></span>
+			<md-button class="md-raised" href="/#!/join">Join</md-button>
+			<md-button class="md-raised" href="/#!/host">Host</md-button>
+			<md-button class="md-raised" href="/#!/session" ng-show="currentsession">
+				Current Session
+			</md-button>
+			<md-button href="/#!/profile">Profile</md-button>
+			<md-button href="/#!/" ng-click="signout()">Log Out</md-button>
+		</div>
+	</md-toolbar>
 
-		<ul>
-			<li><a href="/#!/profile">Profile</a></li>
-			<li><a href="/#!/join">Join</a></li>
-			<li><a href="/#!/host">Host</a></li>
-			<li ng-show="currentsession"><a href="/#!/session">Current Session</a></li>
-		</ul>
+	<div layout="row" layout-wrap layout-align="center center">
+		<div flex="100" layout layout-align="center center">
+			<h2>Game On</h2>
+		</div>
+		<div flex="100" layout layout-align="center center">
+			<h4>A Social Meetup Application</h4>
+		</div>
+		<div flex="100" layout layout-align="center center">
+			<h6>Try our iOS and Android app for the best experience!</h6>
+		</div>
+		<md-button class="md-raised" flex="30">
+			iOS app
+		</md-button>
+		<md-button class="md-raised" flex="30">
+			Android app
+		</md-button>
 	</div>
 </section>
