@@ -6,7 +6,6 @@ angular.module('session').controller('SessionController', ['$scope', 'Authentica
 		// initializing the map
 		var mapDiv = document.getElementById('map');
 		var map = new google.maps.Map(mapDiv, {
-			center: {lat: 44.540, lng: -78.546},
 			zoom: 8
 		});
 
@@ -28,6 +27,19 @@ angular.module('session').controller('SessionController', ['$scope', 'Authentica
 				} else {
 					$scope.currentUserIsHost = false;
 				}
+
+				var pos = {
+					lat: result.attributes.location.latitude,
+					lng: result.attributes.location.longitude
+				};
+				var sessionLocationMarker = new google.maps.Marker({
+					map: map,
+					position: pos,
+					icon: 'http://maps.google.com/mapfiles/ms/icons/orange-dot.png',
+					draggable: false
+				});
+
+				map.panTo(pos);
 			},
 			function(error) {
 				console.log(error);
